@@ -8,6 +8,9 @@ stressboard
 .. image:: https://travis-ci.org/EnTeQuAk/stressboard.png?branch=master
         :target: https://travis-ci.org/EnTeQuAk/stressboard
 
+.. image:: https://coveralls.io/repos/EnTeQuAk/stressboard/badge.png
+        :target: https://coveralls.io/r/EnTeQuAk/stressboard
+
 .. image:: https://pypip.in/d/stressboard/badge.png
         :target: https://crate.io/packages/stressboard?version=latest
 
