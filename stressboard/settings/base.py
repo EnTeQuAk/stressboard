@@ -59,3 +59,10 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+LOADS_DATABASE = {
+    'backend': 'redis',
+    'options': {}
+}
+
+LOADS_BROKER = 'ipc:///tmp/loads-front.ipc'

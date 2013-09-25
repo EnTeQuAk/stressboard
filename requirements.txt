@@ -1,3 +1,4 @@
 # django==1.6
 https://www.djangoproject.com/download/1.6b3/tarball/
 south
+-e git+git@github.com:mozilla-services/loads.git@28ee32a7efbaa80d085f1022d5c3ccd8eb6d1e48#egg=loads-0.2
