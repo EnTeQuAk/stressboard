@@ -37,7 +37,7 @@ class Controller(object):
         return self.client.ping()
 
     def get_runs(self, **filters):
-        if filters == {}:
+        if not filters:
             return self.db.get_runs()
 
         runs = []
