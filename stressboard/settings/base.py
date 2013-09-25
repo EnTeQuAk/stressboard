@@ -1,5 +1,4 @@
 import os
-from datetime import timedelta
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))

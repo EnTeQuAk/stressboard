@@ -4,7 +4,7 @@ stressboard
 
 .. image:: https://badge.fury.io/py/stressboard.png
     :target: http://badge.fury.io/py/stressboard
-    
+
 .. image:: https://travis-ci.org/EnTeQuAk/stressboard.png?branch=master
         :target: https://travis-ci.org/EnTeQuAk/stressboard
 
@@ -22,13 +22,7 @@ The full documentation is at http://stressboard.rtfd.org.
 Quickstart
 ----------
 
-Install stressboard::
-
-    pip install stressboard
-
-Then use it in a project::
-
-	import stressboard
+...
 
 Features
 --------
