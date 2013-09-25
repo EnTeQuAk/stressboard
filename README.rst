@@ -33,4 +33,4 @@ Then use it in a project::
 Features
 --------
 
-* TODO
+ * Simple dasboard with realtime information about your stress tests.
