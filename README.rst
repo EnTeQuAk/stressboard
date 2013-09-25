@@ -15,7 +15,9 @@ stressboard
         :target: https://crate.io/packages/stressboard?version=latest
 
 
-Dashboard for stress tests with loads
+Dashboard for stress tests with loads.
+
+The code is based on loads-web and the dashboard of PuppetDB.
 
 Documentation
 -------------
