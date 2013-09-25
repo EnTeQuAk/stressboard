@@ -50,7 +50,6 @@ class Controller(object):
                 else:
                     if info['metadata'][key] == value:
                         runs.append(run)
-                        break
 
         return runs
 
@@ -58,7 +57,8 @@ class Controller(object):
         result = {}
         if data:
             data = self.db.get_data(run_id, size=100)
-            result['data'] = data
+            # Make it easier to serialize so a list is better than a generator
+            result['data'] = list(data)
             errors = {}
 
             lines = self.db.get_data(run_id, data_type='addError', size=100)
