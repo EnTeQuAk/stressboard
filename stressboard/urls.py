@@ -1,8 +1,10 @@
-from django.contrib import admin
 from django.conf.urls import url, include, patterns
 
-admin.autodiscover()
-
 urlpatterns = patterns('',
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', 'stressboard.views.index', name='index'),
+    url(r'^run/(?P<run_id>.*)', 'stressboard.views.run', name='run'),
+
+    # API
+
+    url(r'^api/run/(?P<run_id>.*)', 'stressboard.views.api_run'),
 )

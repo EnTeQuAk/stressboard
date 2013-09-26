@@ -1,0 +1,61 @@
+{% extends 'stressboard/base.html' %}
+{% load static from staticfiles %}
+{% block body %}
+
+  {% for run_id in runs %}
+    <a class="counterdesc" href="{% url 'stressboard.views.run' run_id=run_id %}">{{ run_id }}</a>
+    <table id="metrics-{{ run_id }}">
+    </table>
+    <br>
+  {% endfor %}
+
+{% endblock body %}
+
+{% block scripts %}
+{{ block.super }}
+  <script type="text/javascript" src="{% static 'js/vendor/d3.v2.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/charts.js' %}"></script>
+  <script>(function() {
+    // Formatting middleware that collapses small values to 0
+    function clampToZero(f, window) {
+      return function(n) {
+        return f(Math.abs(n) < window ? 0 : n);
+      };
+    };
+
+    // Parse URL arguments
+    function getParameter(paramName) {
+      var searchString = window.location.search.substring(1),
+          i, val, params = searchString.split("&");
+
+      for (i=0;i<params.length;i++) {
+        val = params[i].split("=");
+        if (val[0] == paramName) {
+          return unescape(val[1]);
+        }
+      }
+      return null;
+    };
+
+    var nHistorical = getParameter("nHistorical") || 60;
+    var pollingInterval = getParameter("pollingInterval") || 1000;
+    var width = getParameter("width") || 400;
+    var height = getParameter("height") || 60;
+
+    {% for run_id in runs %}
+      counterAndSparkline()
+      .url("/api/run/{{ run_id }}")
+      .snag(function(res) { return res["rps"] })
+      .format(d3.format(",.3s"))
+      .description("")
+      .addendum("rps")
+      .container("#metrics-{{ run_id }}")
+      .nHistorical(nHistorical)
+      .pollingInterval(pollingInterval)
+      .width(width)
+      .height(height)
+      .call();
+    {% endfor %}
+  })()</script>
+
+{% endblock scripts %}

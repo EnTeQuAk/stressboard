@@ -12,11 +12,6 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
     'django.contrib.staticfiles',
     'stressboard',
     'south',
@@ -62,7 +57,8 @@ STATIC_URL = '/static/'
 
 LOADS_DATABASE = {
     'backend': 'redis',
-    'options': {}
+    'options': {
+    }
 }
 
 LOADS_BROKER = 'ipc:///tmp/loads-front.ipc'
